@@ -1,0 +1,9 @@
+project:
+  output-dir: _docs
+
+website:
+  title: "gcp-python-client-functions"
+  site-url: "https://datasciencedani.github.io/gcp-python-client-functions"
+  description: "Reusable functions using Google Cloud's Python client libraries"
+  repo-branch: main
+  repo-url: "https://github.com/datasciencedani/gcp-python-client-functions"
