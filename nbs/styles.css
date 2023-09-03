@@ -35,3 +35,7 @@ div.description {
   font-size: 135%;
   opacity: 70%;
 }
+
+.cell .collapsible_headings_toggle .fa {
+    transition: transform 0s;
+}
