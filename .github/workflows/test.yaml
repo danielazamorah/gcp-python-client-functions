@@ -11,11 +11,23 @@ jobs:
 
     steps: 
     - id: 'auth'
-      name: 'Authenticate to Google Cloud'
-      uses: 'google-github-actions/auth@v1'
+      name: 'Authenticate to GCP'
+      uses: 'google-github-actions/auth@v0.3.1'
       with:
-        workload_identity_provider: 'projects/532579765435/locations/global/workloadIdentityPools/github/providers/github'
-        service_account: 'svc-github@dz-learning-d.iam.gserviceaccount.com'
+          create_credentials_file: 'true'
+          workload_identity_provider: 'projects/532579765435/locations/global/workloadIdentityPools/github/providers/github'
+          service_account: 'svc-github@dz-learning-d.iam.gserviceaccount.com'
+    - id: 'gcloud'
+      name: 'gcloud'
+      run: |-
+        gcloud auth login --brief --cred-file="${{ steps.auth.outputs.credentials_file_path }}"
+
+    # - id: 'auth'
+    #   name: 'Authenticate to Google Cloud'
+    #   uses: 'google-github-actions/auth@v1'
+    #   with:
+    #     workload_identity_provider: 'projects/532579765435/locations/global/workloadIdentityPools/github/providers/github'
+    #     service_account: 'svc-github@dz-learning-d.iam.gserviceaccount.com'
         
     - name: 'Nbdev CI'
       uses: fastai/workflows/nbdev-ci@master
