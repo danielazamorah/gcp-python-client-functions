@@ -101,6 +101,7 @@ celerybeat-schedule
 # virtualenv
 .venv
 venv/
+test-env/
 ENV/
 
 # Spyder project settings
@@ -149,3 +150,9 @@ checklink/cookies.txt
 
 # Quarto
 .quarto
+
+# Config variables
+.config
+
+# Archive
+archive/

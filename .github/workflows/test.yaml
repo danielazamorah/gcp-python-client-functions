@@ -3,5 +3,19 @@ on:  [workflow_dispatch, pull_request, push]
 
 jobs:
   test:
+
+    permissions:
+        contents: 'read'
+        id-token: 'write'
+
     runs-on: ubuntu-latest
-    steps: [uses: fastai/workflows/nbdev-ci@master]
+    steps: 
+    
+    - id: 'auth'
+      name: 'Authenticate to Google Cloud'
+      uses: 'google-github-actions/auth@v1'
+      with:
+        workload_identity_provider: 'projects/123456789/locations/global/workloadIdentityPools/my-pool/providers/my-provider'
+        service_account: 'my-service-account@my-project.iam.gserviceaccount.com'
+        
+    - uses: fastai/workflows/nbdev-ci@master
