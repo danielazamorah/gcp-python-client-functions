@@ -3,10 +3,10 @@
 # %% auto 0
 __all__ = ['query_to_df']
 
-# %% ../nbs/00_bigquery.ipynb 8
+# %% ../nbs/00_bigquery.ipynb 14
 from google.cloud import bigquery
 
-# %% ../nbs/00_bigquery.ipynb 9
+# %% ../nbs/00_bigquery.ipynb 15
 def query_to_df(
     project_id: str, # GCP project ID
     query_str: str, # String variable containing SQL Query

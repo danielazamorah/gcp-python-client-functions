@@ -3,19 +3,20 @@ on:  [workflow_dispatch, pull_request, push]
 
 jobs:
   test:
-
+    runs-on: ubuntu-latest
+    # Add "id-token" with the intended permissions.
     permissions:
         contents: 'read'
         id-token: 'write'
 
-    runs-on: ubuntu-latest
     steps: 
-    
     - id: 'auth'
       name: 'Authenticate to Google Cloud'
       uses: 'google-github-actions/auth@v1'
       with:
-        workload_identity_provider: 'projects/123456789/locations/global/workloadIdentityPools/my-pool/providers/my-provider'
-        service_account: 'my-service-account@my-project.iam.gserviceaccount.com'
+        token_format: 'access_token'
+        workload_identity_provider: 'projects/532579765435/locations/global/workloadIdentityPools/github/providers/github'
+        service_account: 'svc-github@dz-learning-d.iam.gserviceaccount.com'
         
-    - uses: fastai/workflows/nbdev-ci@master
+    - name: 'Nbdev CI'
+      uses: fastai/workflows/nbdev-ci@master
