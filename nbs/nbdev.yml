@@ -4,6 +4,6 @@ project:
 website:
   title: "gcp-python-client-functions"
   site-url: "https://datasciencedani.github.io/gcp-python-client-functions"
-  description: "Reusable functions using GCP Python client libraries (independent of Google)."
+  description: "One package that will handle the installation and client generation for the most used  GCP Python Client Libraries + methods that avoid repetitive processes."
   repo-branch: main
   repo-url: "https://github.com/datasciencedani/gcp-python-client-functions"
