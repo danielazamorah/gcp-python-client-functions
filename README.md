@@ -65,10 +65,11 @@ export GOOGLE_APPLICATION_CREDENTIALS="/path/to/keyfile.json"
 ``` python
 from gcp_python_client_functions.clients import *
 
-# BigQuery
 PROJECT_ID = 'dz-learning-d'
+
+# BigQuery
 bq_obj = BigQuery(PROJECT_ID)
 
 # Cloud Storage
-stg_obj = Storage()
+stg_obj = Storage(PROJECT_ID)
 ```

@@ -53,10 +53,12 @@ class Storage:
     """
     def __init__(
         self, 
+        project_id: str, # GCP project ID
     ): 
-        self.client = storage.Client()
+        self.project_id = project_id
+        self.client = storage.Client(project_id)
         
-    def __repr__(self): return f'Cloud Storage Object'
+    def __repr__(self): return f'Cloud Storage Object ({self.project_id})'
 
 # %% ../nbs/00_clients.ipynb 22
 @patch
